@@ -1,6 +1,6 @@
-create database ideabd;
+create database individual2s;
 
-use ideabd;
+use individual2s;
 
 create table empresa(
 idEmpresa int primary key auto_increment,
@@ -106,8 +106,14 @@ constraint foreign key (fkHardWare) references hardware(idHardWare),
 constraint foreign key (fkTotem) references totem(codigoTotem)
 )auto_increment = 0;
 
+create table blackListProcessos(
+idProcesso int primary key auto_increment,
+nomeProcesso varchar(45)
+)auto_increment = 0;
+
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
-GRANT insert, select, update, delete on ideabd.* TO 'usuario'@'localhost';
+GRANT insert, select, update, delete on individual2s.* TO 'usuario'@'localhost';
 FLUSH PRIVILEGES;
 
 insert into totem(codigoTotem) values ("123123");
+insert into blackListProcessos(nomeProcesso) values("notepad");
